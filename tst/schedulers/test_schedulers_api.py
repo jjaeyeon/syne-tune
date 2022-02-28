@@ -13,6 +13,7 @@ from syne_tune.backend.trial_status import Trial
 from syne_tune.optimizer.baselines import RandomSearch, BayesianOptimization, \
     ASHA, MOBSTER, REA, SyncHyperband, SyncBOHB, SyncMOBSTER
 from syne_tune.optimizer.scheduler import SchedulerDecision
+from syne_tune.optimizer.schedulers.botorch.botorch_gp import BotorchGP
 from syne_tune.optimizer.schedulers.fifo import FIFOScheduler
 from syne_tune.optimizer.schedulers.median_stopping_rule import MedianStoppingRule
 from syne_tune.optimizer.schedulers.hyperband import HyperbandScheduler
@@ -140,6 +141,7 @@ def make_transfer_learning_evaluations(num_evals: int = 10):
         max_resource_level=max_t,
         max_resource_attr='steps',
         brackets=3),
+    BotorchGP(config_space=config_space, metric=metric1),
 ])
 def test_async_schedulers_api(scheduler):
     trial_ids = range(4)
