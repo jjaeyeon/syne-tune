@@ -12,7 +12,7 @@
 # permissions and limitations under the License.
 import logging
 
-from ..syne_tune.config_space import uniform, randint, choice
+from ...syne_tune.config_space import uniform, randint, choice
 
 from ...syne_tune.optimizer.schedulers.searchers.bayesopt.datatypes.common import \
     dictionarize_objective
