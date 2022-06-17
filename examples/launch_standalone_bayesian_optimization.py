@@ -1,5 +1,16 @@
+# Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License").
+# You may not use this file except in compliance with the License.
+# A copy of the License is located at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# or in the "license" file accompanying this file. This file is distributed
+# on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+# express or implied. See the License for the specific language governing
+# permissions and limitations under the License.
 import logging
-import sys, os
 
 from syne_tune.config_space import uniform, randint, choice
 
@@ -41,7 +52,8 @@ if __name__ == '__main__':
         state.hp_ranges.config_space,
         points_to_evaluate = None,
         random_seed = random_seed,
-        metric = 'objective'
+        metric = 'objective',
+        debug_log = False
     )
     gp_searcher_state = gp_searcher.get_state()
     gp_searcher_state['state'] = encode_state(state)
@@ -51,6 +63,5 @@ if __name__ == '__main__':
         batch_size=batch_size,
         num_init_candidates_for_batch=num_init_candidates_for_batch
     )
+
     assert len(next_candidate_list) == batch_size
-    assert all(isinstance(candidate, Configuration) for candidate in next_candidate_list)
-    assert all(len(candidate)==num_init_candidates_for_batch for candidate in next_candidate_list)
