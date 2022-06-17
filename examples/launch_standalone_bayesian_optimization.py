@@ -12,20 +12,18 @@
 # permissions and limitations under the License.
 import logging
 
-from syne_tune.config_space import uniform, randint, choice
+from ..syne_tune.config_space import uniform, randint, choice
 
-from syne_tune.optimizer.schedulers.searchers.bayesopt.datatypes.common import \
+from ...syne_tune.optimizer.schedulers.searchers.bayesopt.datatypes.common import \
     dictionarize_objective
-from syne_tune.optimizer.schedulers.searchers.bayesopt.datatypes.hp_ranges_factory import \
+from ...syne_tune.optimizer.schedulers.searchers.bayesopt.datatypes.hp_ranges_factory import \
     make_hyperparameter_ranges
-from syne_tune.optimizer.schedulers.searchers.bayesopt.utils.test_objects import\
+from ...syne_tune.optimizer.schedulers.searchers.bayesopt.utils.test_objects import\
     create_tuning_job_state
-from syne_tune.optimizer.schedulers.searchers.gp_fifo_searcher import \
+from ...syne_tune.optimizer.schedulers.searchers.gp_fifo_searcher import \
     GPFIFOSearcher
-from syne_tune.optimizer.schedulers.searchers.gp_searcher_utils import \
+from ...syne_tune.optimizer.schedulers.searchers.gp_searcher_utils import \
     encode_state
-from syne_tune.optimizer.schedulers.searchers.bayesopt.datatypes.common import \
-    Configuration
 
 if __name__ == '__main__':
     logging.getLogger().setLevel(logging.INFO)

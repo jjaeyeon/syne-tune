@@ -22,7 +22,7 @@ jobs:
         python -m pip install -r requirements-gpsearchers.txt --upgrade pip
     - name: Check that stand-alone bayesian-optimation example runs
       run: |
-        python examples/launch_standalone_bayesian_optimization.py
+        python -m examples/launch_standalone_bayesian_optimization.py
 
 
 
