@@ -23,7 +23,7 @@ jobs:
         python -m pip install typing_extensions
     - name: Check that stand-alone bayesian-optimation example runs
       run: |
-        python examples/launch_standalone_bayesian_optimization.py
+        PYTHONPATH='./' python examples/launch_standalone_bayesian_optimization.py
 
 
 
