@@ -28,6 +28,13 @@ from syne_tune.optimizer.schedulers.searchers.gp_fifo_searcher import \
 from syne_tune.optimizer.schedulers.searchers.gp_searcher_utils import \
     encode_state
 
+def import_module_from_path(file_path, module_name):
+    spec = importlib.util.spec_from_file_location(module_name, file_path)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = module
+    spec.loader.exec_module(module)
+    return module
+
 if __name__ == '__main__':
     logging.getLogger().setLevel(logging.INFO)
 
