@@ -12,17 +12,23 @@
 # permissions and limitations under the License.
 
 __all__ = ["LocalBackend", "SageMakerBackend", "PythonBackend"]
+
+import logging
+
 try:
     from syne_tune.backend.local_backend import LocalBackend
 except ImportError:
     __all__.remove("LocalBackend")
+    logging.info(try_import_backend_message("LocalBackend"))
 
 try:
     from syne_tune.backend.python_backend.python_backend import PythonBackend
 except ImportError:
     __all__.remove("PythonBackend")
+    logging.info(try_import_backend_message("PythonBackend"))
 
 try:
     from syne_tune.backend.sagemaker_backend.sagemaker_backend import SageMakerBackend
 except ImportError:
     __all__.remove("SageMakerBackend")
+    logging.info(try_import_backend_message("SageMakerBackend"))
