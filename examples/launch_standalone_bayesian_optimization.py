@@ -11,9 +11,6 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 import logging
-import sys, os
-
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from syne_tune.config_space import uniform, randint, choice
 
