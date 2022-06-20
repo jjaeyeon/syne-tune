@@ -11,22 +11,8 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
-__all__ = []
+__all__ = ["LocalBackend", "SageMakerBackend", "PythonBackend"]
 
-try:
-    from syne_tune.backend.local_backend import LocalBackend
-    __all__.append("LocalBackend")
-except ImportError:
-    pass
-
-try:
-    from syne_tune.backend.python_backend.python_backend import PythonBackend
-    __all__.append("PythonBackend")
-except ImportError:
-    pass
-
-try:
-    from syne_tune.backend.sagemaker_backend.sagemaker_backend import SageMakerBackend
-    __all__.append("SageMakerBackend")
-except ImportError:
-    pass
+from syne_tune.backend.local_backend import LocalBackend
+from syne_tune.backend.python_backend.python_backend import PythonBackend
+from syne_tune.backend.sagemaker_backend.sagemaker_backend import SageMakerBackend
