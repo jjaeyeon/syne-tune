@@ -16,15 +16,17 @@ __all__ = []
 try:
     from syne_tune.backend.local_backend import LocalBackend
     __all__.append("LocalBackend")
-except:
+except ImportError:
     pass
+
 try:
     from syne_tune.backend.python_backend.python_backend import PythonBackend
     __all__.append("PythonBackend")
-except:
+except ImportError:
     pass
+
 try:
     from syne_tune.backend.sagemaker_backend.sagemaker_backend import SageMakerBackend
     __all__.append("SageMakerBackend")
-except:
+except ImportError:
     pass
