@@ -15,6 +15,8 @@ __all__ = ["LocalBackend", "SageMakerBackend", "PythonBackend"]
 
 import logging
 
+from syne_tune.try_import import try_import_backend_message
+
 try:
     from syne_tune.backend.local_backend import LocalBackend
 except ImportError:
